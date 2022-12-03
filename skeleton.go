@@ -8,13 +8,18 @@ import (
 )
 
 func main() {
-	_, err := readInput("input.txt")
+	d, err := readInput("input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
+	result := 0
+	for _, i := range *d {
+		fmt.Println(i)
+	}
+	fmt.Println(result)
 }
 
-type data struct{}
+type data []struct{}
 
 func readInput(path string) (*data, error) {
 	f, err := os.Open(path)
@@ -27,7 +32,7 @@ func readInput(path string) (*data, error) {
 
 	s := bufio.NewScanner(f)
 	for s.Scan() {
-		// do stuff
+
 	}
 	return &d, s.Err()
 }
